@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "en-IN"
-title                    : "Runes of Uncommented Code"
+title                    : "Runes of Un-Documented Code"
 title_separator          : "-"
 name                     : "Kanishk Singh"
 description              : "Exploring and learning Python. Computer Engineering sophomore"
