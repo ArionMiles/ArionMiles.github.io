@@ -16,13 +16,13 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-IN"
-title                    : "Runes of Un-Documented Code"
+title                    : "Runes of Undocumented Code"
 title_separator          : "-"
 name                     : "Kanishk Singh"
 description              : "Exploring and learning Python. Computer Engineering sophomore"
 url                      : "https://arionmiles.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "ArionMiles" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "ArionMiles/ArionMiles.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -103,7 +103,7 @@ author:
   name             : "Kanishk Singh"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Exploring and learning Python. Computer Engineering sophomore"
-  location         : "Mumbai, Maharashtra, India"
+  location         : "Mumbai, India"
   email            : "singh.kanishk07@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
