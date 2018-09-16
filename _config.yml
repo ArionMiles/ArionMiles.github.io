@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name             : "Kanishk Singh"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Exploring and learning Python. Computer Engineering sophomore"
   location         : "Mumbai, India"
   email            : "singh.kanishk07@gmail.com"
