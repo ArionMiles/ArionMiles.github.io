@@ -44,6 +44,10 @@ For monitoring all the incoming and outgoing requests for your website, simply g
 Paste the API endpoint and play around with the response. You can save multiple endpoints into a single collection which can be used by your friends or collaborators too.
 
 ## This endpoint is sending HTML WHAAT!? - Enter Wireshark
+
+![Sesame Street](../../assets/images/api-endpoint-extraction-sesamestreet.jpg "Sesame Street")
+
+
 Yeah, some sites are like that. Some people just wanna watch you scrape and burn. They communicate using AJAX requests on the frontend, but the responses from the AJAX requests is completely pre-rendered html code.
 
 This part made me think how these websites work with their mobile apps? They must be using the same endpoints for website and app, yeah? it's easier that way, isn't it? Turns out I'm very wrong. They have separate API endpoints for their mobile Apps. 
