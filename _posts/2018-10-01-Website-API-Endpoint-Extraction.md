@@ -28,7 +28,7 @@ Client side rendering is a technique where the browser sends a request for your 
 
 The way it works is that each time you interact with a part of the website, it triggers an AJAX (Asynchronous Javascript and XML) request which receives a response in either XML or JSON (very popular these days) and it's parsed by the client-side javascript code of the website to properly display each value of the response wherever necessary.
 
-This method is very performance efficient, as it doesn't put unnecessary load on the webserver or consume more bandwidth, allowing you to server more users at the same time.
+This method is very performance efficient, as it doesn't put unnecessary load on the webserver or consume more bandwidth, allowing you to serve more users at the same time.
 
 This method is also the reason why we will save on hours of wearisome webscraping.
 
