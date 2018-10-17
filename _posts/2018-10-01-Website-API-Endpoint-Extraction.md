@@ -78,7 +78,9 @@ Your computer is acting a hotspot which your phone connects to. And your compute
 
 Since Wireshark resides on your computer, it is able to capture all that traffic (along with your computer's traffic as well, but we're not concerned with that) and is able to search through it.
 
-As you begin sniffing, interact with the mobile app in some way for it to trigger talking to the remote servers for data. After capturing packets is over, simply Find (Ctrl + F), set a `String` Display Filter and type out the name of the website/app, look for HTTP requests in particular, and surely enough, you will be able to find that the app is making GET/POST request with certain parameters/data and when you put that URL in Postman, you'll see a JSON response (most likely) which can be easily parsed by your code. Keep tweaking the request in Postman to find the best suited configuration and when you're ready, use it in your code.
+As you begin sniffing, interact with the mobile app in some way for it to trigger talking to the remote servers for data. After capturing packets is over, apply `http` filter, to look for HTTP requests in particular, now simply go to Find (Ctrl + F), set a `String` Display Filter and type out the name of the website/app, and surely enough, you will be able to find that the app is making GET/POST request with certain parameters/data. 
+
+Go to the `Hypertext Transfer Protocol` section in the middle window of Wireshark, and scroll down till you see a `Full Request URI` field, it will look like a link. `Right click > Copy > Value` to copy the URL and when you put that URL in Postman, you'll see a JSON response (most likely) which can be easily parsed by your code. Keep tweaking the request in Postman to find the best suited configuration and when you're ready, use it in your code.
 
 
 ## Ethics
