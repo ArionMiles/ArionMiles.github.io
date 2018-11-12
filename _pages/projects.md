@@ -32,3 +32,6 @@ Also [included in the official search-plugins repository](https://github.com/qbi
 
 ## [Triton](https://github.com/ArionMiles/Triton)
 A small Telegram Bot which fetches my github notifications directly to my Telegram client (I don't check emails that often). Deployed on Heroku and uses Github Public API v3.
+
+## [Marvel-API](https://github.com/wrap-away/Marvel-API)
+A wrapper library for Marvel Comics API in Python.
