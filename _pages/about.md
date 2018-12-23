@@ -10,5 +10,5 @@ I'm a Computer Engineering undergrad from Mumbai, India. In my leisure time, I p
 Outside of classes I study Machine Learning, attend hackathons, and build solutions to
 real life problems using programming.
 
-You can see my resume [here](https://drive.google.com/open?id=1GoRRq8p1YyQyMsv-ktsDy4Qd6itqgpVA), and my projects 
+You can see my resume [here](/resume.pdf), and my projects 
 [here](/projects/).
