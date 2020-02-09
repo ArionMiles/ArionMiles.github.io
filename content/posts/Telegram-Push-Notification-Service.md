@@ -279,6 +279,8 @@ In production, I am able to send messages to 300+ users in under 8-10 seconds ea
 
 In Part 2 of this blogpost, I will talk about adding debugging info, storing the notification data in database models and building a "undo" feature for reverting sent notifications.
 
+UPDATE: The 2nd part is up and [available here](https://arionmiles.me/posts/telegram-push-notification-part-deux/).
+
 ## Links
 Here are some really nice resources I found helpful during the time I was building this feature.
 
