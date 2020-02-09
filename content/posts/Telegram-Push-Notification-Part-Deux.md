@@ -297,7 +297,7 @@ I've only given a glimpse of my implementation, highlighting the key points requ
 
 Below is my implementation in action.
 
-![Screenshot](/images/push_notification_demo.jpg "Push Notification Screenshot")
+![Screenshot](/images/push_notification_demo.jpg "Push Notification Screenshot"){:class="img-responsive"}
 
 As you may have noticed, it says I've sent the message to 702 users, but after deleting the notification it says only 687 messages have been deleted. The reason for this is that there were some inactive users, i.e. they may have blocked the bot or deleted their Telegram account. And, I delete all inactive users from the database after I'm done sending notifications.
 
