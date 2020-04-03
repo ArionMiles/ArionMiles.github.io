@@ -48,13 +48,13 @@ You can also choose to name it `projectName` or `projectName-venv` so that you k
 The command for activating the virtual environment differs from platform to platform and also depends on the shell which you're using. Below is a table from [official Python documentation](https://docs.python.org/3/library/venv.html) which lists the activation commands for some common platforms and shells.
 
  Platform | Shell | Command to activate virtual environment 
- ------------- |:-------------:| :-----:
+ ------------- |-------------| -----
 POSIX|bash/zsh|`$ source <venv>/bin/activate`
-|fish|`$ . <venv>/bin/activate.fish`
-|csh/tcsh|`$ source <venv>/bin/activate.csh`
-|PowerShell Core|`$ <venv>/bin/Activate.ps1`
+||fish|`$ . <venv>/bin/activate.fish`
+||csh/tcsh|`$ source <venv>/bin/activate.csh`
+||PowerShell Core|`$ <venv>/bin/Activate.ps1`
 Windows|cmd.exe|`C:\> <venv>\Scripts\activate.bat`
-|PowerShell|`PS C:\> <venv>\Scripts\Activate.ps1`
+||PowerShell|`PS C:\> <venv>\Scripts\Activate.ps1`
 
 For most people, they `bash` and `cmd.exe` commands are all they need if they're on Linux and Windows. 
 
