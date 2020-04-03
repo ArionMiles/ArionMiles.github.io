@@ -56,7 +56,7 @@ POSIX|bash/zsh|`$ source <venv>/bin/activate`
 Windows | cmd.exe | `C:\> <venv>\Scripts\activate.bat`
 ||PowerShell|`PS C:\> <venv>\Scripts\Activate.ps1`
 
-For most people, they `bash` and `cmd.exe` commands are all they need if they're on Linux and Windows. 
+For most people, `bash` and `cmd.exe` commands are all they need if they're on Linux and Windows, respectively. 
 
 Run the appropriate command, and your terminal will read something like this if you're on Linux:
 ```
