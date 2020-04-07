@@ -85,6 +85,10 @@ As a rule of thumb, I never install any project related dependency in my global 
 ## IDE & Editor support
 Most modern editors and IDEs like [VS Code](https://code.visualstudio.com/) and [PyCharm](https://www.jetbrains.com/pycharm/) can readily make use of the virtual environments you create. With PyCharm going as far as allowing you to create a new project with a dedicated virtual environment right from the get go.
 
+Even [Jupyter Notebooks](https://jupyter.org/), popular among people new to Python supports opening a kernel in a specific virtual environment. If I need to use a jupyter notebook within a virtual environment, I generally create  and activate my project's virtual environment, install jupyter and related packages, and launch the notebook from that activated environment. That notebook is able to utilize all the packages installed in my virtual environment. 
+
+There are several different approaches available for isolating development environments for Jupyter notebooks, like using Conda environments, but this is applicable to users who don't use Anaconda as well.
+
 So look up if virtual environments are supported by your IDEs and you can get the best use out of your tools.
 
 
