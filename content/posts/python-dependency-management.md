@@ -50,6 +50,7 @@ There are two main reasons for having a requirements.txt for your project.
 Keep in mind that the file should only contain names and versions of python packages, which can by fetched from PyPI (Python Package Index) or similar host which contains the python files. It shouldn't contain any external dependency like a binary or additional software not written in python. For such dependencies, specify their installation steps and download links in your README.
 
 The usual way I generate the file for my projects is:
+
 1. Create & activate a virtual environment for my project
 2. Install the necessary packages during the course of development
 3. Run `pip freeze > requirements.txt`
@@ -89,7 +90,12 @@ Simply run
 pip install https://github.com/{USERNAME}/{MYPROJECT}/archive/{BRANCH}.zip
 ```
 
-So in my instance the URL was `https://github.com/ArionMiles/securimage_solver/archive/pip_package.zip`. `pip_package` is the name of the branch to install from.
+So in my instance the URL was 
+```
+https://github.com/ArionMiles/securimage_solver/archive/pip_package.zip
+```
+
+`pip_package` is the name of the branch to install from.
 
 You can simply put the URL in the `requirements.txt` to make it a part of your dependencies.
 
