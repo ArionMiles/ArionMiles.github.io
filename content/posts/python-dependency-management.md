@@ -46,7 +46,7 @@ There are two main reasons for having a requirements.txt for your project.
     Suppose you're working on a Django project, you pip install the latest version of django (say v2.2). You work on the project for some time, put it online on GitHub for everyone to try. More than a year later, some other developer decides to try out your project, but since you did not include versions of your dependencies, the other developer will install their latest available versions (say v3.x). Now, since this is a major version change, it will most certainly will throw deprecation warnings and errors when you try to run it.
 
 
-### Creating requirements.txt
+## Creating requirements.txt
 Keep in mind that the file should only contain names and versions of python packages, which can by fetched from PyPI (Python Package Index) or similar host which contains the python files. It shouldn't contain any external dependency like a binary or additional software not written in python. For such dependencies, specify their installation steps and download links in your README.
 
 The usual way I generate the file for my projects is:
@@ -57,7 +57,7 @@ The usual way I generate the file for my projects is:
 
 This above command (`pip freeze`) will list all installed packages in your environment along with their version number, we then pipe it to a file called `requirements.txt`.
 
-#### Constrainted requirements
+### Constrainted requirements
 By default, when you use `pip freeze > requirements.txt`, it specifies a strict version using `==`, i.e. only that specific version of the library is needed. 
 
 But you may have certain cases where you need a dependency to be above or below a certain version. 
@@ -99,7 +99,7 @@ https://github.com/ArionMiles/securimage_solver/archive/pip_package.zip
 
 You can simply put the URL in the `requirements.txt` to make it a part of your dependencies.
 
-#### Environment markers
+### Environment markers
 You can also specify an "environment marker" in your requirements file. As to what it is, it allows you to specify which dependencies are to be ignore or installed dependending on whether the system running the pip command meets the conditions.
 
 For example, you could be writing your code for Linux and Windows systems, and windows requires certain package, while Linux doesn't, so you can specify using the `sys_platform` environment marker:
@@ -118,7 +118,7 @@ This will ensure that if you run `pip install -r requirements.txt` from a window
 
 You can learn about more such useful environment markers in [PEP 508](https://www.python.org/dev/peps/pep-0508/#environment-markers).
 
-#### Comments
+### Comments
 A line beginning with `#` symbol will be treated as a comment. 
 
 You can use it for:
@@ -127,7 +127,7 @@ You can use it for:
 - Mark specific sections in the requirements file, though it will make no difference `pip`, but might be useful for humans.
 
 
-### Installing from a requirements.txt
+## Installing from a requirements.txt
 When you come across a project or inherit a codebase which already has the requirements file, you can quickly setup a virtual environment and install the dependencies using the below command:
 
 ```
