@@ -122,6 +122,7 @@ You can learn about more such useful environment markers in [PEP 508](https://ww
 A line beginning with `#` symbol will be treated as a comment. 
 
 You can use it for:
+
 - Ignoring certain packages. Useful for quick debugging.
 - Add a quick note about why you're using a specific package. However, only do it if it's of note.
 - Mark specific sections in the requirements file, though it will make no difference `pip`, but might be useful for humans.
