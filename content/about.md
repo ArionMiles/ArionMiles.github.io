@@ -9,7 +9,7 @@ I'm a Computer Engineering undergrad from Mumbai, India.
 Outside of classes I am working on my skills as a fullstack developer, learning new stuff, and love to build solutions to
 real life problems using programming.
 
-I'm currently looking for internships as a fullstack or backend developer. If you like what you see, you can reach out to me at `singh dot kanishk07 at gmail dot com`
+I'm currently looking for Software Engineering internships. If you have some work for me, you can reach out to me at `kanishk@arionmiles.me`
 
 You can see my resume [here](/pdfs/resume.pdf).
 
