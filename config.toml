@@ -1,7 +1,7 @@
 baseURL = "https://arionmiles.me/"
 languageCode = "en-us"
 title = "Kanishk Singh"
-theme = "ezhil"
+theme = "ink"
 
 # Enable syntax highlighting.
 pygmentsstyle = "github"
