@@ -4,12 +4,14 @@ body {
 }
 
 ::-moz-selection {
-    background: #666;
+	background: #9375fd;
+	color: #fff;
     text-shadow: none
 }
 
 ::selection {
-    background: #666;
+	background: #9375fd;
+	color: #fff;
     text-shadow: none
 }
 
@@ -26,8 +28,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a,a:hover {
-	color: #ff7979;
+	color: #9375fd;
 	text-decoration: none;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .site-description a,
@@ -57,13 +63,4 @@ a:hover {
 
 .highlight {
 	background-color: #333;
-}
-
-table th {
-	background-color: #333;
-}
-
-table th, table td {
-    padding: 10px 20px;
-    border: 1px solid #666;
 }
