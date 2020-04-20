@@ -1,10 +1,11 @@
-baseURL = "https://arionmiles.me"
+baseURL = "https://arionmiles.me/"
 languageCode = "en-us"
 title = "Kanishk Singh"
-theme = "ezhil"
+theme = "hugo-ink"
+paginate = 5
 
 # Enable syntax highlighting.
-pygmentsstyle = "github"
+pygmentsstyle = "vs"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
@@ -16,14 +17,17 @@ disqusShortname = "arionmiles"
 [params]
 	# Blog subtitle which appears below blog title. Supports markdown.
 	subtitle = "Runes of Undocumented Code"
-	# Number of posts to show in recent posts list (Optional). Defaults to 10.
-	recentPostsCount = 5
+
 	# Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
 	excludedTypes = ["page"]
+	mainSections = ["post"]
+
 	# Content types which are excludes Disqus comments (Optional). Defaults to ["page"]
 	disableDisqusTypes = ["page"]
+
 	# If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
 	featherIconsCDN = true
+
 	# Switch to dark mode or auto detect mode from OS (Optional).
     # "dark" will set mode to dark and "auto" will switch to dark mode if OS is in dark mode.
     mode = "dark" # "dark" or "auto"
