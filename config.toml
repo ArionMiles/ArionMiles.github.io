@@ -20,6 +20,7 @@ disqusShortname = "arionmiles"
 
 	# Content types which are excluded from recent posts and archive page (Optional). Defaults to ["page"]
 	excludedTypes = ["page"]
+	mainSections = ["post"]
 
 	# Content types which are excludes Disqus comments (Optional). Defaults to ["page"]
 	disableDisqusTypes = ["page"]
