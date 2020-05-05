@@ -100,6 +100,7 @@ $ ldd $(which rig)
 Now, you can choose to copy the binary and all these dependencies into `bin/` & `lib/` respectively, but it's an endless war and nothing but frustration, and unless you're into masochism, this is not worth your time.
 
 Here's a few problems which you'll encounter even if you manage to put all this together manually (or even write fancy bash scripts if you're in a good mood):
+
 1. Dependency-ception
     These dependencies might depend on some other libraries not listed by `ldd`.
 2. All ELF executables have a hardcoded interpreter path which is used by the kernel to start the program.
