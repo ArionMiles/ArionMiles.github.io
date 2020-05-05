@@ -163,21 +163,43 @@ We'll use the below SAM template for our project. Save the contents of this gist
 
 {{< gist ArionMiles f57ca40f83d0445d69edf02d92d9ad45 >}}
 
-
-
->>>> symlink issueee
 ```
-/var/task/exodus/bin/<some_binary>: line 9: /var/task/exodus/bin/./linker-2d196bc8632e500316fa0e0c3e8f40d0e7da853ae940805080b3492ce03b7b51: No such file or directory
+$ sam deploy --guided
+```
+Run the above command from the project root (where you have `template.yaml`) and follow the instructions. This will create a CloudFormation stack containing the function, permissions, relevant roles, and the layers. You can view it from the [Lambda Console](https://console.aws.amazon.com/lambda/) and if you wish to delete everything related to the lambda application, you can do so from [CloudFormation console](https://console.aws.amazon.com/cloudformation/).
+
+Go to Lambda > Applications > Select your "rig" application (whatever you named the app during `sam deploy`)
+
+Scroll to the bottom, under resources, select your Function. When the console opens, create a simple test (use the default test template provided) and test the function. You'll see this output:
+
+```
+{
+  "identity": "/opt/bin/rig: line 9: /opt/bin/./linker-2d196bc8632e500316fa0e0c3e8f40d0e7da853ae940805080b3492ce03b7b51: No such file or directory"
+}
 ```
 
+So it looks like exodus didn't work. Or maybe we're doing something wrong. Let's check.
+```
+$ ls -la exodus/*
+exodus/bin:
+total 0
+drwxrwxrwx 1 arion arion 4096 May  6 01:24 .
+drwxrwxrwx 1 arion arion 4096 May  6 01:24 ..
+lrwxrwxrwx 1 arion arion   87 May  6 01:24 rig -> ../bundles/9cf834c649ca952381d55810f61a4594cd8fb8d965b2018b5aa055c4bfc5cd34/usr/bin/rig
+```
+so we see that the binary `exodus/bin/rig` is a symlink (symbolic link) to another file in `bundles/`. When we zip them, these symlinks are not preserved, hence we get the above error.
+
+Let's fix this. The `--symlinks` flag will instruct zip to preserve the symlinks. 
 ```
 $ cd exodus/
 $ zip --symlinks -r9 ../rig.zip *
 $ cd ..
 ```
 
->>>> /usr/share/rig/ issueeee
-
+Let's deploy it again.
+```
+$ sam deploy
+```
 
 ## Sources
 1. https://intoli.com/blog/transcoding-on-aws-lambda/
