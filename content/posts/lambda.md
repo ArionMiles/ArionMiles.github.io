@@ -103,10 +103,11 @@ Now, you can choose to copy the binary and all these dependencies into `bin/` & 
 Here's a few problems which you'll encounter even if you manage to put all this together manually (or even write fancy bash scripts if you're in a good mood):
 
 1. Dependency-ception
+
     These dependencies might depend on some other libraries not listed by `ldd`.
 2. All ELF executables have a hardcoded interpreter path which is used by the kernel to start the program.
 
->>> [Source](https://intoli.com/blog/transcoding-on-aws-lambda/)
+- [Source for the above points](https://intoli.com/blog/transcoding-on-aws-lambda/)
 
 
 ## `exodus` from this mess
@@ -271,6 +272,9 @@ With that said, it also has some limitations. Adding external files didn't work 
 
 
 ## Lessons learnt
-1. 
+1. Favor layers for your dependencies rather than bundling them with your code. This allows for more flexibilty for hot-swapping different versions, and also allows you the luxury of create-once-use-multiple-times.
 2. If your binary depends on additional data files which may be present in paths not included under the Lamda execution environment, it's better to find a way to configure the binary to load data files from some sort of configuration, like a flag (`-d` in our case).
 3. Symlinks will ruin your life. I wasted a day until it was pointed out to me that I wasn't preserving the symlinks while zipping the files.
+4. If you're thinking of creating layers through SAM's `AWS::Serverless::LayerVersion` type, remember that when SAM zips the contents, it doesn't preserve the symlinks, something which is common when dealing with binaries and library code.
+
+All in all, this project took me about six-seven days to go from zero experience to creating a fully automated deployment strategy. Of course, it wasn't all me, I had help from friends like [Paresh](http://github.com/pareshchouhan) who told me about exodus and pointing out the symlink issue, and [Adithya](https://twitter.com/TheTallpants) who recommended SAM and also helped me debug my templates. This was a fun excercise!
