@@ -175,7 +175,7 @@ Run the above command from the project root (where you have `template.yaml`) and
 
 Go to Lambda > Applications > Select your "rig" application (whatever you named the app during `sam deploy`)
 
-{{< video webm="webms/rig_demo.webm" >}}
+{{< video webm="/videos/rig_demo.webm" >}}
 
 Scroll to the bottom, under resources, select your Function. When the console opens, create a simple test (use the default test template provided) and test the function. You'll see this output:
 
