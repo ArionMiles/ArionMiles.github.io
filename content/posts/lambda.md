@@ -1,6 +1,6 @@
 ---
-title: Creating AWS Lambda layers for ELF Binaries
-date: 2020-05-04
+title: Creating AWS Lambda Layers for ELF Binaries
+date: 2020-05-06
 type: "post"
 description: "Using ELF binaries inside lambda applications"
 tags:
@@ -29,7 +29,7 @@ Lambda layers solve the above two pain points. Every successive update to the la
 
 
 ## An impossible task
-We'll build a simple lambda application as an exercise which relies on a linux binary to work. This walk-through can be done on any linux machine or if you're on Windows 10, you can use [WSL (Windows Subsystem for Linus)](https://docs.microsoft.com/en-us/windows/wsl/install-win10). This article has been made using WSL.
+We'll build a simple lambda application as an exercise which relies on a linux binary to work. This walk-through can be done on any linux machine or if you're on Windows 10, you can use [WSL (Windows Subsystem for Linus)](https://docs.microsoft.com/en-us/windows/wsl/install-win10). This article has been made using Ubuntu on WSL.
 
 Let's take `rig`, it stands for Random Identity Generation, it's a classic linux utility that when called, prints a fake name, address and zip code.
 
@@ -70,8 +70,10 @@ def lambda_handler(event, context):
 
 if __name__ == "__main__":
     # Test function
-    print(lambda_handler("", ""))
+    print(lambda_handler(None, None))
 ```
+
+The parameter `event` is a [python dict object](https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html) (can also be list/str/int/float or None) and `context` is a [Lambda context object](https://docs.aws.amazon.com/lambda/latest/dg/python-context.html).
 
 ## Packing `rig` for lambda
 Now the issue is, the Linux image Lambda runs (Amazon Linux) doesn't come preinstalled with `rig`, and we cannot simply make a shell call to install the package on every invocation for 2 big reasons:
@@ -107,7 +109,7 @@ Here's a few problems which you'll encounter even if you manage to put all this 
     These dependencies might depend on some other libraries not listed by `ldd`.
 2. All ELF executables have a hardcoded interpreter path which is used by the kernel to start the program.
 
-- [Source for the above points](https://intoli.com/blog/transcoding-on-aws-lambda/)
+[Source for the above points](https://intoli.com/blog/transcoding-on-aws-lambda/)
 
 
 ## `exodus` from this mess
@@ -277,4 +279,4 @@ With that said, it also has some limitations. Adding external files didn't work 
 3. Symlinks will ruin your life. I wasted a day until it was pointed out to me that I wasn't preserving the symlinks while zipping the files.
 4. If you're thinking of creating layers through SAM's `AWS::Serverless::LayerVersion` type, remember that when SAM zips the contents, it doesn't preserve the symlinks, something which is common when dealing with binaries and library code.
 
-All in all, this project took me about six-seven days to go from zero experience to creating a fully automated deployment strategy. Of course, it wasn't all me, I had help from friends like [Paresh](http://github.com/pareshchouhan) who told me about exodus and pointing out the symlink issue, and [Adithya](https://twitter.com/TheTallpants) who recommended SAM and also helped me debug my templates. This was a fun excercise!
+All in all, this project took me about six-seven days to go from zero experience to creating a fully automated deployment strategy. Of course, it wasn't all me, I had help from friends like [Paresh](http://github.com/pareshchouhan) who told me about exodus and pointed out the symlink issue, and [Adithya](https://twitter.com/TheTallpants) who recommended SAM and also helped me debug my templates. This was a fun excercise!
