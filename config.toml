@@ -66,6 +66,11 @@ icon = "twitter"
 url = "https://twitter.com/Arion_Miles"
 
 [[params.social]]
+name = "E-mail"
+icon = "email"
+url = "kanishk@arionmiles.me"
+
+[[params.social]]
 name = "LinkedIn"
 icon = "linkedin"
 url = "https://www.linkedin.com/in/arionmiles/"
