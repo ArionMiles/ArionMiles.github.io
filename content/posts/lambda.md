@@ -266,7 +266,13 @@ Now deploy once again, and sure enough, you'll see an output like this:
   "identity": "Harriet Martinez\n855 Cimenny Rd\nMiami, FL  33152\n(305) xxx-xxxx"
 }
 ```
-And that's it! We're able to use a binary not originally available inside the lambda environment. We can use the rig layer by specifying its ARN in any other function we want. 
+And that's it! We're able to use a binary not originally available inside the lambda environment. We can use the rig layer by specifying its ARN in any other function we want.
+
+You can add a API Gateway trigger to this function so that whenever you send a HTTP request to the endpoint the function will return a random identity. 
+
+As for the function I built for my friend, it dealt with file manipulation, so I used an S3 trigger so that whenever a file with a specific extension was uploaded inside a specific folder in the bucket, the function would be triggered and after file manipulation we used `boto` library available in the AWS Python runtime to upload the final file to a different folder inside the same bucket, and then make an HTTP request to a webhook URL with the bucket name and file key. 
+
+I could've used a API Gateway trigger and send the entire file as a base64 encoded string but that would incur more charges since an API Gateway request is [measured in increments of 512KB](https://aws.amazon.com/api-gateway/pricing/) so if you send a file greater than 512KB in one request, it'll count as 2 requests for AWS.
 
 Exodus has a bunch of nice features, I've already mentioned `--add` flag to bundle additional files, but you can also infer runtime dependencies using `strace` and pipe them to exodus. You can find more about their features in [this article](https://intoli.com/blog/exodus-2/)
 
@@ -279,6 +285,8 @@ With that said, it also has some limitations. Adding external files didn't work 
 3. Symlinks will ruin your life. I wasted a day until it was pointed out to me that I wasn't preserving the symlinks while zipping the files.
 4. If you're thinking of creating layers through SAM's `AWS::Serverless::LayerVersion` type, remember that when SAM zips the contents, it doesn't preserve the symlinks, something which is common when dealing with binaries and library code.
 5. When working with stuff where file permissions are critical, do not do it inside a Windows filesystem. I realized that even if inside WSL, if your working directory is under `/mnt/c/`, any `chmod` command is useless and file permission changes are not applied. In such cases prefer working from `~` or HOME directory, which is kind of a network folder and it emulates a linux filesystem.
+6. Be smart about the function triggers you choose. Using API gateway (for my friend's usecase) would've been costly and counter-productive since you have to encode on client side, send it and then decode the string inside your function to access the file. An S3 trigger is more efficient and seems more natural.
+7. Don't trust the AWS Lambda web console. When I defined the S3 trigger event in my sam template, on deploying, the console didn't show me the S3 bucket attached to the function, so I thought something went wrong, but upon doing a simple test of uploading the file to my bucket, function was triggered and saw my file in the output folder in the same bucket.
 
 All in all, this project took me about six-seven days to go from zero experience to creating a fully automated deployment strategy. Of course, it wasn't all me, I had help from friends like [Paresh](http://github.com/pareshchouhan) who told me about exodus and pointed out the symlink issue, and [Adithya](https://twitter.com/TheTallpants) who recommended SAM and also helped me debug my templates. This was a fun excercise!
 
