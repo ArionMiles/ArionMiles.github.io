@@ -8,7 +8,7 @@ tags:
  - serverless
 ---
 
-Last week a friend told me about a new app he was writing and it involved use of an application which was quite CPU heavy, and we wondered if we could save CPU costs by offloading that workload to a AWS Lambda function. I had never touched AWS Lambda prior to this, and I had a vague overview of what serverless applications were from a presentation I did for a college course, but I was very bored in lockdown and the prospect seemed fun, so I took upon myself to make this happen.
+Last week a friend told me about a new app he was writing and it involved use of an application which was quite CPU heavy, and we wondered if we could save CPU costs by offloading that workload to an AWS Lambda function. I had never touched AWS Lambda prior to this, and I had a vague overview of what serverless applications were from a presentation I did for a college course, but I was very bored in lockdown and the prospect seemed fun, so I took it upon myself to make this happen.
 
 TL;DR for serverless paradigm: A Lambda function is basically a stateless execution environment, which is only fired up on demand, so it saves costs of managing, hosting full fledged servers (also called serverful apps). So whenever you need something done, you trigger your function, it takes your input, carries out whatever operation you program it to, returns a response and shuts down until it is triggered again.
 
@@ -29,13 +29,13 @@ Lambda layers solve the above two pain points. Every successive update to the la
 
 
 ## An impossible task
-We'll build a simple lambda application as an exercise which relies on a linux binary to work.
+We'll build a simple lambda application as an exercise which relies on a linux binary to work. This walk-through can be done on any linux machine or if you're on Windows 10, you can use [WSL (Windows Subsystem for Linus)](https://docs.microsoft.com/en-us/windows/wsl/install-win10). This article has been made using WSL.
 
 Let's take `rig`, it stands for Random Identity Generation, it's a classic linux utility that when called, prints a fake name, address and zip code.
 
-If you don't have it pre-installed, you can download it and a few more utilities we'll be using:
+If you don't have it pre-installed, you can download rig and zip (we'll be using it later) by:
 ```
-$ sudo apt install -y rig zip jq
+$ sudo apt install -y rig zip
 ```
 
 Get a fake identity by simply calling `rig` inside your shell.
@@ -47,7 +47,7 @@ Detroit, MI  48233
 (313) xxx-xxxx
 ```
 
-The lamda application we'll be building will simply call this binary and return the text as a json response.
+The lamda application we'll be building will simply call this binary and return the text as a response.
 
 Let's get started. Create a empty directory, and make a `lambda_function.py` file.
 ```
@@ -105,9 +105,11 @@ Here's a few problems which you'll encounter even if you manage to put all this 
     These dependencies might depend on some other libraries not listed by `ldd`.
 2. All ELF executables have a hardcoded interpreter path which is used by the kernel to start the program.
 
+>>> [Source](https://intoli.com/blog/transcoding-on-aws-lambda/)
 
-## `exodus` from this headache
-I was trying to create layers using the above mentioned strategy to no avail, encountering cryptic and mysterious errors like:
+
+## `exodus` from this mess
+I was trying to create layers for my friend's application using the above mentioned strategy to no avail, encountering cryptic and mysterious errors like:
 ```
 `<some-binary>: /lib64/libz.so.1: version ZLIB_1.2.9' not found (required by /opt/lib/libpng16.so.16)
 ```
@@ -192,6 +194,7 @@ so we see that the binary `exodus/bin/rig` is a symlink (symbolic link) to anoth
 
 Let's fix this. The `--symlinks` flag will instruct zip to preserve the symlinks. 
 ```
+$ rm rig.zip        # remove pre-existing zip
 $ cd exodus/
 $ zip --symlinks -r9 ../rig.zip *
 $ cd ..
@@ -201,6 +204,66 @@ Let's deploy it again.
 ```
 $ sam deploy
 ```
+On testing once again, we see a new error (cleaned up):
+```
+Unable to read file /usr/share/rig/locdata.idx
 
-## Sources
-1. https://intoli.com/blog/transcoding-on-aws-lambda/
+USAGE: rig [-f | -m ] [ -d datadir ] [ -c num ]
+       datadir - Directory where data files can be found.
+       If datadir is not specified, /usr/share/rig is used as the
+       default directory.
+       num - print num identities.
+       -f and -m specify gender of generated identities.
+```
+It turns out `rig` utilizes pre defined data files to generate the random identities. They reside in `/usr/share/rig`
+
+Exodus allows you to add additional files using the `--add` flag.
+So we could do 
+```
+$ rm -r exodus/
+$ exodus --tarball --add /usr/share/rig rig | tar -zx
+$ cd exodus/
+$ zip --symlinks -r9 ../rig.zip *
+$ cd ..
+```
+
+I tried this, but turns out this additional file is mounted at `/opt/bundles/<hash>/usr/share/rig` and the PATH of the lambda environment contains these directories:
+```
+/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin
+```
+So the `/opt/bundles/<hash>/user/share/rig` needs to be added to the path since we can't write to `/usr/share` on the lambda environment. Doing PATH shenanigans is something I'd advise against. It's messy.
+
+Fortunately for us, as evident in the above error and usage message, `rig` allows us to specify a data file to generate name files from. So we can simply copy `/usr/share/rig` from our local system into `exodus/rig` and zip everything up.
+
+```
+$ rm rig.zip 
+$ rm -r exodus/
+$ exodus --tarball rig | tar -zx
+$ cp -r /usr/share/rig exodus/rig
+$ cd exodus/
+$ zip --symlinks -r9 ../rig.zip *
+$ cd ..
+$ sam deploy
+```
+
+Also, change `rig_command` in `src/lambda_function.py` to tell rig where to pick up data files from:
+```python
+rig_command = "rig -d /opt/rig"
+```
+Now deploy once again, and sure enough, you'll see an output like this:
+```
+{
+  "identity": "Harriet Martinez\n855 Cimenny Rd\nMiami, FL  33152\n(305) xxx-xxxx"
+}
+```
+And that's it! We're able to use a binary not originally available inside the lambda environment. We can use the sam layer by specifying its ARN in any other function we want. 
+
+Exodus has a bunch of nice features, I've already mentioned `--add` flag to bundle additional files, but you can also infer runtime dependencies using `strace` and pipe them to exodus. You can find more about their features in [this article](https://intoli.com/blog/exodus-2/)
+
+With that said, it also has some limitations. Adding external files didn't work for me, but, it's still very new, so you can expect improvements. You can find more about its limitations [here](https://github.com/intoli/exodus#known-limitations).
+
+
+## Lessons learnt
+1. 
+2. If your binary depends on additional data files which may be present in paths not included under the Lamda execution environment, it's better to find a way to configure the binary to load data files from some sort of configuration, like a flag (`-d` in our case).
+3. Symlinks will ruin your life. I wasted a day until it was pointed out to me that I wasn't preserving the symlinks while zipping the files.
