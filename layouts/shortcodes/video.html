@@ -1,0 +1,6 @@
+<video controls style="width: 100%; margin-bottom: 20px">
+    {{ with .Get "mp4" }}<source src="{{ . }}" type="video/mp4">{{ end }}
+    {{ with .Get "webm" }}<source src="{{ . }}" type="video/webm">{{ end }}
+    {{ with .Get "ogg" }}<source src="{{ . }}" type="video/ogg">{{ end }}
+    Your browser does not support the video element.
+</video>
