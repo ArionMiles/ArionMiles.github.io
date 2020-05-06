@@ -54,6 +54,7 @@ Let's get started. Create a empty directory, and make a `lambda_function.py` fil
 $ mkdir -p lambda-example/src/
 $ cd lambda-example/src
 $ echo > lambda_function.py
+$ cd ..             # Come back to project root
 ```
 
 and paste the below code into the file
@@ -158,6 +159,7 @@ You can install SAM through pip, along with AWS-CLI which you need since SAM pic
 
 ```
 $ pip3 install --user awscli aws-sam-cli
+$ aws configure
 ```
 
 Run `aws configure` next and add your access keys and secret keys. You can [learn how to create those keys here](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html). Next select your default region and response format (json).
@@ -172,6 +174,8 @@ $ sam deploy --guided
 Run the above command from the project root (where you have `template.yaml`) and follow the instructions. This will create a CloudFormation stack containing the function, permissions, relevant roles, and the layers. You can view it from the [Lambda Console](https://console.aws.amazon.com/lambda/) and if you wish to delete everything related to the lambda application, you can do so from [CloudFormation console](https://console.aws.amazon.com/cloudformation/).
 
 Go to Lambda > Applications > Select your "rig" application (whatever you named the app during `sam deploy`)
+
+{{< video webm="webms/rig_demo.webm" >}}
 
 Scroll to the bottom, under resources, select your Function. When the console opens, create a simple test (use the default test template provided) and test the function. You'll see this output:
 
