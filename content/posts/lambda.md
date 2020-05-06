@@ -29,7 +29,7 @@ Lambda layers solve the above two pain points. Every successive update to the la
 
 
 ## An impossible task
-We'll build a simple lambda application as an exercise which relies on a linux binary to work. This walk-through can be done on any linux machine or if you're on Windows 10, you can use [WSL (Windows Subsystem for Linus)](https://docs.microsoft.com/en-us/windows/wsl/install-win10). This article has been made using Ubuntu on WSL.
+We'll build a simple lambda application as an exercise which relies on a linux binary to work. This walk-through can be done on any linux machine or if you're on Windows 10, you can use [WSL (Windows Subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/install-win10). This article has been made using Ubuntu on WSL.
 
 Let's take `rig`, it stands for Random Identity Generation, it's a classic linux utility that when called, prints a fake name, address and zip code.
 
