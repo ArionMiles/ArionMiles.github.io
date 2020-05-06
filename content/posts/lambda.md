@@ -173,12 +173,12 @@ $ sam deploy --guided
 ```
 Run the above command from the project root (where you have `template.yaml`) and follow the instructions. This will create a CloudFormation stack containing the function, permissions, relevant roles, and the layers. You can view it from the [Lambda Console](https://console.aws.amazon.com/lambda/) and if you wish to delete everything related to the lambda application, you can do so from [CloudFormation console](https://console.aws.amazon.com/cloudformation/).
 
-Go to Lambda > Applications > Select your "rig" application (whatever you named the app during `sam deploy`)
+Go to Lambda > Applications > Select your "rig" application (whatever you named the app during `sam deploy`). Scroll to the bottom, under resources, select your Function. When the console opens, create a simple test (use the default test template provided) and test the function.
 
+If you find this confusing, follow this small video snippet I made.
 {{< video webm="/videos/rig_demo.webm" >}}
 
-Scroll to the bottom, under resources, select your Function. When the console opens, create a simple test (use the default test template provided) and test the function. You'll see this output:
-
+Once you run the test, you'll see this output:
 ```
 {
   "identity": "/opt/bin/rig: line 9: /opt/bin/./linker-2d196bc8632e500316fa0e0c3e8f40d0e7da853ae940805080b3492ce03b7b51: No such file or directory"
@@ -187,8 +187,7 @@ Scroll to the bottom, under resources, select your Function. When the console op
 
 So it looks like exodus didn't work. Or maybe we're doing something wrong. Let's check.
 ```
-$ ls -la exodus/*
-exodus/bin:
+$ ls -la exodus/bin
 total 0
 drwxrwxrwx 1 arion arion 4096 May  6 01:24 .
 drwxrwxrwx 1 arion arion 4096 May  6 01:24 ..
@@ -219,11 +218,12 @@ USAGE: rig [-f | -m ] [ -d datadir ] [ -c num ]
        num - print num identities.
        -f and -m specify gender of generated identities.
 ```
-It turns out `rig` utilizes pre defined data files to generate the random identities. They reside in `/usr/share/rig`
+It turns out `rig` utilizes pre-defined data files to generate the random identities. They reside in `/usr/share/rig`
 
 Exodus allows you to add additional files using the `--add` flag.
 So we could do 
 ```
+$ rm rig.zip
 $ rm -r exodus/
 $ exodus --tarball --add /usr/share/rig rig | tar -zx
 $ cd exodus/
@@ -247,12 +247,15 @@ $ cp -r /usr/share/rig exodus/rig
 $ cd exodus/
 $ zip --symlinks -r9 ../rig.zip *
 $ cd ..
-$ sam deploy
 ```
 
 Also, change `rig_command` in `src/lambda_function.py` to tell rig where to pick up data files from:
 ```python
 rig_command = "rig -d /opt/rig"
+```
+
+```
+$ sam deploy
 ```
 Now deploy once again, and sure enough, you'll see an output like this:
 ```
@@ -260,7 +263,7 @@ Now deploy once again, and sure enough, you'll see an output like this:
   "identity": "Harriet Martinez\n855 Cimenny Rd\nMiami, FL  33152\n(305) xxx-xxxx"
 }
 ```
-And that's it! We're able to use a binary not originally available inside the lambda environment. We can use the sam layer by specifying its ARN in any other function we want. 
+And that's it! We're able to use a binary not originally available inside the lambda environment. We can use the rig layer by specifying its ARN in any other function we want. 
 
 Exodus has a bunch of nice features, I've already mentioned `--add` flag to bundle additional files, but you can also infer runtime dependencies using `strace` and pipe them to exodus. You can find more about their features in [this article](https://intoli.com/blog/exodus-2/)
 
