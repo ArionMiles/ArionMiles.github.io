@@ -281,3 +281,5 @@ With that said, it also has some limitations. Adding external files didn't work 
 5. When working with stuff where file permissions are critical, do not do it inside a Windows filesystem. I realized that even if inside WSL, if your working directory is under `/mnt/c/`, any `chmod` command is useless and file permission changes are not applied. In such cases prefer working from `~` or HOME directory, which is kind of a network folder and it emulates a linux filesystem.
 
 All in all, this project took me about six-seven days to go from zero experience to creating a fully automated deployment strategy. Of course, it wasn't all me, I had help from friends like [Paresh](http://github.com/pareshchouhan) who told me about exodus and pointed out the symlink issue, and [Adithya](https://twitter.com/TheTallpants) who recommended SAM and also helped me debug my templates. This was a fun excercise!
+
+You can find the code for this repository [here](https://github.com/ArionMiles/lambda-layers-for-elf-binaries). If you have questions or suggestions, feel free to reach out to me on twitter or email.
