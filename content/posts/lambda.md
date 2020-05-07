@@ -115,7 +115,7 @@ Here's a few problems which you'll encounter even if you manage to put all this 
 ## `exodus` from this mess
 I was trying to create layers for my friend's application using the above mentioned strategy to no avail, encountering cryptic and mysterious errors like:
 ```
-`<some-binary>: /lib64/libz.so.1: version ZLIB_1.2.9' not found (required by /opt/lib/libpng16.so.16)
+<some-binary>: /lib64/libz.so.1: version ZLIB_1.2.9 not found (required by /opt/lib/libpng16.so.16)
 ```
 I have mentioned the issue of "dependency-ception" above, this is exactly that. Looks like my binary's dependencies require zlib packaged as well.
 
