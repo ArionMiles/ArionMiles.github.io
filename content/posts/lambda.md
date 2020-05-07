@@ -78,7 +78,7 @@ The parameter `event` is a [python dict object](https://docs.aws.amazon.com/lamb
 ## Packing `rig` for lambda
 Now the issue is, the Linux image Lambda runs (Amazon Linux) doesn't come preinstalled with `rig`, and we cannot simply make a shell call to install the package on every invocation for 2 big reasons:
 
-1. Expensive time cost, on every invocation we'd be installing this package and then giving the output. What if the package is unavailable for the package manager Amazon Linux uses?
+1. Expensive time cost, on every invocation we'd be installing this package and then giving the output.
 2. The entire environment is read-only (except for `/tmp/`) so even if we _could_ do 1, we can't.
 
 The way it works is quite simple, you put all binaries inside a `bin/` directory, and all Shared Object (`.so`) files inside a `lib/` directory, zip them up and upload them as a lambda layer.
@@ -257,9 +257,6 @@ Also, change `rig_command` in `src/lambda_function.py` to tell rig where to pick
 rig_command = "rig -d /opt/rig"
 ```
 
-```
-$ sam deploy
-```
 Now deploy once again, and sure enough, you'll see an output like this:
 ```
 {
@@ -286,7 +283,7 @@ With that said, it also has some limitations. Adding external files didn't work 
 4. If you're thinking of creating layers through SAM's `AWS::Serverless::LayerVersion` type, remember that when SAM zips the contents, it doesn't preserve the symlinks, something which is common when dealing with binaries and library code.
 5. When working with stuff where file permissions are critical, do not do it inside a Windows filesystem. I realized that even if inside WSL, if your working directory is under `/mnt/c/`, any `chmod` command is useless and file permission changes are not applied. In such cases prefer working from `~` or HOME directory, which is kind of a network folder and it emulates a linux filesystem.
 6. Be smart about the function triggers you choose. Using API gateway (for my friend's usecase) would've been costly and counter-productive since you have to encode on client side, send it and then decode the string inside your function to access the file. An S3 trigger is more efficient and seems more natural.
-7. Don't trust the AWS Lambda web console. When I defined the S3 trigger event in my sam template, on deploying, the console didn't show me the S3 bucket attached to the function, so I thought something went wrong, but upon doing a simple test of uploading the file to my bucket, function was triggered and saw my file in the output folder in the same bucket.
+7. Don't trust the AWS Lambda web console. When I defined the S3 trigger event in my SAM template, on deploying the console didn't show me the S3 bucket attached to the function, so I thought something went wrong, but upon doing a simple test of uploading the file to my bucket, function was triggered and I saw my file in the output folder in the same bucket.
 
 All in all, this project took me about six-seven days to go from zero experience to creating a fully automated deployment strategy. Of course, it wasn't all me, I had help from friends like [Paresh](http://github.com/pareshchouhan) who told me about exodus and pointed out the symlink issue, and [Adithya](https://twitter.com/TheTallpants) who recommended SAM and also helped me debug my templates. This was a fun excercise!
 
