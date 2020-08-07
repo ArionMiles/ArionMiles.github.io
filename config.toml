@@ -61,6 +61,11 @@ icon = "github"
 url = "https://github.com/ArionMiles"
 
 [[params.social]]
+name = "Email"
+icon = "mail"
+url = "mailto:kanishk@arionmiles.me"
+
+[[params.social]]
 name = "Twitter"
 icon = "twitter"
 url = "https://twitter.com/Arion_Miles"
