@@ -1,4 +1,4 @@
-baseURL = "https://arionmiles.me/"
+baseURL = "https://deploy-preview-3--arionmiles.netlify.app/"
 languageCode = "en-us"
 title = "Kanishk Singh"
 theme = "hugo-ink"
