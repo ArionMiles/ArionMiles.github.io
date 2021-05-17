@@ -9,13 +9,13 @@ I'm a Computer Engineering undergrad from Mumbai, India.
 Outside of classes I am working on my skills as a fullstack developer, learning new stuff, and love to build solutions to
 real life problems using programming.
 
-I'm currently looking for Software Engineering internships. If you have some work for me, you can reach out to me at `kanishk@arionmiles.me`
+I'm currently looking for full-time Junior Software Engineering roles. If you'd like to chat, you can reach out to me at `kanishk@arionmiles.me`
 
 You can see my resume [here](/pdfs/resume.pdf).
 
 # Projects
 
-[diomedes](https://diomedes.in/) Get an email as soon as a movie starts ticket sales on BookMyShow in a theater near you
+[diomedes](https://github.com/ArionMiles/diomedes) Get an email as soon as a movie starts ticket sales on BookMyShow in a theater near you
 
 [gobms](https://github.com/ArionMiles/gobms) An unofficial API wrapper for BookMyShow.com written in Go
 
