@@ -1,6 +1,6 @@
 ---
 title: A brief history of my Python setup
-date: 2021-05-18
+date: 2021-05-17
 type: "post"
 description: "My experiences with different python development tools"
 tags:
