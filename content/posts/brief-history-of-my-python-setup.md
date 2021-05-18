@@ -93,6 +93,10 @@ I'll wholeheartedly support PyCharm for Django projects, as its IntelliSense sup
 
 However, VSCode has been my main editor since a long time now. With its remote extensions for containers and cloud VMs, it's really shaping up to be the ideal editor for small to moderate projects. The extensions marketplace also offer a wide variety of tools to improve your workflow.
 
+### Jupyter Notebooks
+
+I tried Jupyter as I dived into Data Science and found it cool, but only good enough for experimentation. I've always been a terminal guy, so my mindset for running python code has been either in the REPL for quick experimentation, or putting it in a file. Also, in the time it takes to launch a notebook and be able to do anything meaningful with it, I'd lose my train of thought. That said, I have used it plenty. Familiarizing myself with the shortcuts was the biggest productivity boost for working with notebooks. My main reason for opening a notebook has always been ML and DS libraries, and I can't imagine working with `pandas` or `numpy` outside of a notebook.
+
 ## Things I haven't tried out
 
 ### poetry
