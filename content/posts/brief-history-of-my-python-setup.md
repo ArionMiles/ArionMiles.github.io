@@ -117,4 +117,4 @@ Every project gets a default python version set using pyenv, with a virtual envi
 
 ## Summary
 
-I'd say don't get into the habit of frequently switching between different tools. The tools mentioned in this blog have been explored and used over a long period of time. That said, don't get hung up on one tool, try new ones every now and then. Be patient, but not stubborn.
+If you're reading this and have just started out with Python, I'd say don't get into the habit of frequently switching between different tools. This goes for any developer tool, really. The tools mentioned in this blog have been explored and used over a long period of time. That said, don't get hung up on one tool, try new ones every now and then. Be patient, but not stubborn.
