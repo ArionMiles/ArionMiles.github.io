@@ -9,7 +9,7 @@ I'm a Computer Engineering undergrad from Mumbai, India.
 Outside of classes I am working on my skills as a fullstack developer, learning new stuff, and love to build solutions to
 real life problems using programming.
 
-I'm currently looking for full-time Junior Software Engineering roles. If you'd like to chat, you can reach out to me at `kanishk@arionmiles.me`
+I'm currently looking for full-time Junior Software Engineer roles. If you'd like to chat, you can reach out to me at `kanishk@arionmiles.me`
 
 You can see my resume [here](/pdfs/resume.pdf).
 
