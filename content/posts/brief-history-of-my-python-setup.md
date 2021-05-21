@@ -19,7 +19,7 @@ Lately, I’ve stopped working on big projects which use Python, as I’ve start
 
 ## First foray into 🐍 land
 
-The first time I touched Python was back in 2015 when I was intrigued by InfoSec stuff and spent some time learning about and looking into keyloggers, RATs, and other such fun apps made in Python (Mr. Robot had just come out, don’t judge me). I was still using Python2 at the time, since a lot of apps of that variety were still written in it, for some reason. I used the plain old MSI installer to get it up and running on my machine. Wasn’t even aware of what functions are, much less care about how dependencies mess up environments.
+The first time I touched Python was back in 2015 when I was intrigued by InfoSec stuff and spent some time learning about and looking into keyloggers, RATs, and other such fun apps made in Python (_Mr. Robot_ had just come out, don’t judge me). I was still using Python2 at the time, since a lot of apps of that variety were still written in it, for some reason. I used the plain old MSI installer to get it up and running on my machine. Wasn’t even aware of what functions are, much less care about how dependencies mess up environments.
 
 It wasn’t until two years later in March 2017 when I got back to Python. This is when I started learning more, eventually moved to Py3 after a month or so. I can’t remember if it was some person or some blog/article or some Reddit thread where I learned about the importance of virtual environments. Then I spent a small amount of time learning about them. While writing this blog, I went back to my earlier projects and found my first documented use of virtual environments was in Nov 2017, for my Telegram bot project, and I didn’t start out using the built-in venv module, but [virtualenv](https://pypi.org/project/virtualenv/).
 
@@ -120,6 +120,6 @@ Do not remove the default python, as many Linux tools may depend on it.
 
 Every project gets a default python version set using pyenv, with a virtual environment created using venv. I also maintain the [requirements.txt](/posts/python-dependency-management/) file for the project. This simple pyenv + venv + requirements.txt setup works for a lot of use cases. If code depends on system dependencies that need to be isolated, I’ll use conda.
 
-## Summary
+## Conclusion
 
 If you’re reading this and have just started with Python, I’d say don’t get into the habit of frequently switching between different tools. This goes for any developer tool, really. The tools mentioned in this blog have been explored and used over a long period. That said, don’t get hung up on one tool, try new ones now and then. Be patient, but not stubborn.
