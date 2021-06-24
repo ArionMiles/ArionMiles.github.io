@@ -49,7 +49,7 @@ and the next time you clone/push/pull or do any operation requiring authenticati
 Now, it can work in 2 ways -
 
 1.  If you click the "Login with GitHub" button, it'll authenticate via OAuth and save the oauth token to Windows Credential Manager
-2.  If you close the prompt, it'll ask for username and password. You can enter your GitHub username and in place of password, enter the PAT you created from the GitHub settings. This username-token pair will then be saved by Windows Credential Manager.
+2.  If you close the prompt, it'll ask for username and password. You can enter your GitHub username and in place of password, enter the [PAT you created from the GitHub settings](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token). This username-token pair will then be saved by Windows Credential Manager.
 
 I chose to go with the latter option for the reasons mentioned previously.
 
