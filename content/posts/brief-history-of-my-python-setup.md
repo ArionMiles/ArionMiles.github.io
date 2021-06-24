@@ -23,6 +23,12 @@ The first time I touched Python was back in 2015 when I was intrigued by InfoSec
 
 It wasn’t until two years later in March 2017 when I got back to Python. This is when I started learning more, eventually moved to Py3 after a month or so. I can’t remember if it was some person or some blog/article or some Reddit thread where I learned about the importance of virtual environments. Then I spent a small amount of time learning about them. While writing this blog, I went back to my earlier projects and found my first documented use of virtual environments was in Nov 2017, for my Telegram bot project, and I didn’t start out using the built-in venv module, but [virtualenv](https://pypi.org/project/virtualenv/).
 
+- [Environment Isolation Tools](#environment-isolation-tools)
+- [Python version managers](#python-version-managers)
+- [Code Editors & IDEs](#code-editors-ides)
+- [Things I haven't tried out](#things-i-haven-t-tried-out)
+- [Current Setup](#current-setup)
+
 ## Environment Isolation Tools
 
 ### virtualenv
@@ -89,11 +95,11 @@ I’ve used Notepad++, Sublime Text, and Atom, very briefly however. For the maj
 
 I’ll wholeheartedly support PyCharm for Django projects, as its IntelliSense support for Django is better than VSCode’s. It can also interface with databases really well, and that’s a plus when you’re working on a Django project. They’ve also added support for recognizing WSL’s virtual environments.
 
-## VSCode
+### VSCode
 
 However, VSCode has been my main editor for a long time now. With its remote extensions for containers and cloud VMs, it’s shaping up to be the ideal editor for small to moderate projects. The extensions marketplace also offers a wide variety of tools to improve your workflow.
 
-## Jupyter Notebooks
+### Jupyter Notebooks
 
 I tried Jupyter as I dived into Data Science and found it cool, but only good enough for experimentation. I’ve always been a terminal guy, so my mindset for running python code has been either in the REPL for quick experimentation, or putting it in a file. Also, in the time it takes to launch a notebook and be able to do anything meaningful with it, I’d lose my train of thought. That said, I have used it plenty. Familiarizing myself with the shortcuts was the biggest productivity boost for working with notebooks.
 
