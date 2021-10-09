@@ -1,4 +1,4 @@
-baseURL = "https://arionmiles.me/"
+baseURL = "https://kanishk.io/"
 languageCode = "en-us"
 title = "Kanishk Singh"
 theme = "hugo-ink"
@@ -63,17 +63,17 @@ url = "https://github.com/ArionMiles"
 [[params.social]]
 name = "Email"
 icon = "mail"
-url = "mailto:kanishk@arionmiles.me"
+url = "mailto:hey@kanishk.io"
 
 [[params.social]]
 name = "Twitter"
 icon = "twitter"
-url = "https://twitter.com/Arion_Miles"
+url = "https://twitter.com/kanishkio"
 
 [[params.social]]
 name = "LinkedIn"
 icon = "linkedin"
-url = "https://www.linkedin.com/in/arionmiles/"
+url = "https://www.linkedin.com/in/kanishkio/"
 
 # Enable tags.
 [taxonomies]
