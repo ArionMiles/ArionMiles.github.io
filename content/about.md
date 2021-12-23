@@ -20,6 +20,6 @@ You can see my resume [here](/pdfs/kanishk_singh.pdf).
 
 [gobms](https://github.com/ArionMiles/gobms) An unofficial API wrapper for BookMyShow.com written in Go
 
-[diomedes-search](github.com/ArionMiles/diomedes-search) A serverless teeny-tiny version of Diomedes which sends alerts to Telegram. Written in Go.
+[diomedes-search](https://github.com/ArionMiles/diomedes-search) A serverless teeny-tiny version of Diomedes which sends alerts to Telegram. Written in Go.
 
 [MIS-Bot](https://github.com/ArionMiles/MIS-Bot) A telegram bot for my college which helps students track their attendance, see tests and itinerary reports and more fun stuff! Currently used by more than 600 students
