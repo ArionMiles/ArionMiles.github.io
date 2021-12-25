@@ -52,11 +52,11 @@ However, the docker volume I was using for Postgres was still messed up and beyo
 1. Don't install docker using quick install scripts listed in the docs. Always install it via your package manager -- Namc
 2. Never run databases in containers.
 
+![We're Serverless people now](/images/serverless_people.jpeg "We're serverless people now")
+
 ## I'll make it Serverless
 
 After a brief stint at [Antstack](antstack.io), I was sold on the simplicity of building with serverless compute and leveraging managed services to build applications.
-
-![We're Serverless people now](/images/serverless_people.jpeg "We're serverless people now")
 
 So I thought to myself, let's rewrite the entire app using serverless offerings from AWS. That was an year ago now, and I have abandoned that project (more on why at a different time maybe).
 
@@ -116,7 +116,7 @@ With BookMyShow, since we are only interested in when tickets go sale on theater
 
 I already know these details for my theaters, but I'll be writing a small CLI utility in goBMS that allows you to list all Regions with their region code, and then narrow down theaters in that region to get these 3 pieces of information.
 
-Since I'm interested in receiving alerts in our group chat on Telegram, I create a Telegram Bot and add it to my group chat, and note down the ChatID for our group.
+Since I'm interested in receiving alerts in our group chat on Telegram, I created a Telegram Bot and added it to my group chat, and noted down the ChatID for our group.
 
 With these in hand, we can fill the rest up pretty easily.
 
