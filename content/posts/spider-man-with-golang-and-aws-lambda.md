@@ -1,6 +1,6 @@
 ---
 title: Watching Spider-Man with Golang and AWS Lambda
-date: 2021-12-26
+date: 2021-12-25
 type: "post"
 description: "Reviving an old project for fun"
 tags:
