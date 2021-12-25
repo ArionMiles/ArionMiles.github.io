@@ -132,7 +132,9 @@ With everything in place, we just had to sit and wait for sales to commence. Fro
 
 ![Alert on Telegram](/images/diomedes_search_tg_notification.jpg "Alert on Telegram")
 
-I could've formatted the message better to highlight the date and format but it's not bad for a weekend's work.
+I could've formatted the message better to highlight the date and format but it's not bad for a weekend's work. We got the best seats in our theater. The movie lives up to the hype then some, so this was all worth it!
+
+The movie ended up setting several box office records, and ended up [crashing Fandango and AMC Theater websites](https://www.cnet.com/news/spider-man-no-way-home-tickets-are-being-scalped-on-ebay-for-ridiculous-prices/) during pre-sales. So I'm glad I didn't depend on manually checking for the tickets,
 
 ## What's in the future?
 
