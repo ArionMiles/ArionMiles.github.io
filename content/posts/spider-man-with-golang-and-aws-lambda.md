@@ -165,3 +165,5 @@ To optimize this, I'll need to make use of sparse GSIs offering by DynamoDB. It'
 The less number of calls I need to make to BMS, the faster jobs can finish. This involves caching data from BMS responses so I don't have to query for it in subsequent runs. This has been on my list for a long time actually, and something I originally intended to work on in the Django app.
 
 I have some ideas on which pieces of data I can cache to lower my turn around time for each job. I'll be exploring those but only if I can get the above ones done first. This is a low hanging but highly valuable fruit.
+
+In case you want to check out the code, it's available at [ArionMiles/diomedes-search](https://github.com/ArionMiles/diomedes-search)
