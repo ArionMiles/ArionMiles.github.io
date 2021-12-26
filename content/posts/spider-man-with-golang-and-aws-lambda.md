@@ -148,7 +148,7 @@ But what I'm more interested in are performance optimizations, even though no on
 
 ### Concurrent jobs
 
-This is something I never did in the Django App, and I quickly noticed how bad it made things. I remember it took 9 minutes to process 200 jobs, and it could've been quicker if I made each job run concurrently. Python has plenty of options, from [asyncio](https://docs.python.org/3/library/asyncio.html) to [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html) that make this possible.
+This is something I never did in the Django App, and I quickly noticed how bad it made things. I remember it took 9 minutes to process 200 jobs, and it could've been quicker if I made each job run concurrently. Python has plenty of options, from [asyncio](https://docs.python.org/3/library/asyncio.html) to [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html) that make this possible. I have used them in the [past](https://kanishk.io/posts/telegram-push-notification-service/) as well.
 
 With Go, this gives me a nice excuse to play around with goroutines.
 
