@@ -47,7 +47,7 @@ I had turned off the Django app last year and let the domain expire, I didn't wa
 
 That's the logical reason. The real reason is that the server I was running it on had run out of disk space due to what I can only attribute to the large log files my compose app created. I should've enabled rotating log files but lesson learnt, I guess?
 
-Things were so messed up that even after we managed to clear up disk space, the docker daemon on my VM wouldn't work and I wasn't able to restart the compose app. [Namc](namc.in) helped me clear the disk space and fix my docker daemon (she's a wizard with containers).
+Things were so messed up that even after we managed to clear up disk space, the docker daemon on my VM wouldn't work and I wasn't able to restart the compose app. [Namc](https://namc.in) helped me clear the disk space and fix my docker daemon (she's a wizard with containers).
 
 However, the docker volume I was using for Postgres was still messed up and beyond recovery for reasons I cannot recall. As a result I lost all the existing user data. I don't care much about the data since I didn't plan on doing anything with it, but I still feel bad it happened. I felt it best to lay it down to rest at that point at revisit (or rewrite) it in the future.
 
