@@ -60,7 +60,7 @@ However, the docker volume I was using for Postgres was still messed up and beyo
 
 ## I'll make it Serverless
 
-After a brief stint at [Antstack](antstack.io), I was sold on the simplicity of building with serverless compute and leveraging managed services to build applications.
+After a brief stint at [Antstack](https://antstack.io), I was sold on the simplicity of building with serverless compute and leveraging managed services to build applications.
 
 So I thought to myself, let's rewrite the entire app using serverless offerings from AWS. That was an year ago now, and I have abandoned that project (more on why at a different time maybe).
 
