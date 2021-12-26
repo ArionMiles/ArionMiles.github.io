@@ -18,6 +18,8 @@ I was sure that finding good seats was going to be next to impossible with this 
 
 For those of you just tuning in, Diomedes is one of my pet projects I wrote back in college to help me (and 200 random internet strangers) book tickets to Avengers Endgame. It does this by checking BookMyShow (BMS), which is a movie and events ticketing platform in India, similar to Fandango in the US.
 
+Fun fact: I got the idea for the original Diomedes from [Mrinal](https://mrinalpurohit.in/)'s [moviealert](https://github.com/iammrinal0/django_moviealert) project!
+
 You tell Diomedes your:
 
 1. Movie's name,
