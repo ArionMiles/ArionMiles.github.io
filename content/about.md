@@ -4,7 +4,7 @@ date: 2021-12-23
 type: "page"
 ---
 
-I'm a Software Engineer, currently in Mumbai, India.
+I'm a Software Engineer, working remotely from Mumbai, India.
 
 I love building solutions to real life problems with code.
 
