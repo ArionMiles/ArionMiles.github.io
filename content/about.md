@@ -4,9 +4,9 @@ date: 2021-12-23
 type: "page"
 ---
 
-I'm a Software Engineering, currently in Mumbai, India.
+I'm a Software Engineer, currently in Mumbai, India.
 
-I love to build solutions to real life problems with code.
+I love building solutions to real life problems with code.
 
 I work at Thinkify Labs, where I'm currently working with the IaaS team at Netskope, building solutions for Public Cloud Security.
 
