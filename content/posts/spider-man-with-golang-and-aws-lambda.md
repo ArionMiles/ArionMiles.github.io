@@ -2,19 +2,21 @@
 title: Watching Spider-Man with Golang and AWS Lambda
 date: 2021-12-25
 type: "post"
-description: "Reviving an old project for fun"
+description: "Reviving an old project for getting the best seats in the house"
 tags:
   - serverless
   - go
 ---
 
-Last weekend I saw the new Spider-Man ([respect the hyphen](https://www.reddit.com/r/RespectTheHyphen/)) movie No Way Home. Given that this is a big event (no spoilers I promise), I was sure that finding good seats at the theater was going to be next to impossible, and now that theaters are operating at 50% Capacity due to COVID, I had a feeling that they were gonna sell out quickly.
+I promise there are no spoilers in this blog, it's perfectly safe to read if you've not seen the movie yet.
 
-So I dusted off good-old Diomedes.
+Last weekend I saw the new Spider-Man ([respect the hyphen](https://www.reddit.com/r/RespectTheHyphen/)) movie No Way Home. Given that these movies are a big phenomenon, if you want to watch these opening weekend or the very first show, you need to book seats as early as possible or you can end up with having to settle for uncomfortable seats or worse, all shows sell out and you need to be careful avoiding spoilers on the internet.
+
+I was sure that finding good seats was going to be next to impossible with this one, especially since theaters are operating at 50% Capacity due to COVID. So I dusted off good-old Diomedes.
 
 # What is Diomedes?
 
-For those just tuning in, Diomedes is one of my pet projects I wrote back in college to help me (and 200 random internet strangers) book tickets to Avengers Endgame. It does this by checking BookMyShow (BMS), which is a movie and events ticketing platform in India.
+For those of you just tuning in, Diomedes is one of my pet projects I wrote back in college to help me (and 200 random internet strangers) book tickets to Avengers Endgame. It does this by checking BookMyShow (BMS), which is a movie and events ticketing platform in India, similar to Fandango in the US.
 
 You tell Diomedes your:
 
@@ -132,9 +134,9 @@ With everything in place, we just had to sit and wait for sales to commence. Fro
 
 ![Alert on Telegram](/images/diomedes_search_tg_notification.jpg "Alert on Telegram")
 
-I could've formatted the message better to highlight the date and format but it's not bad for a weekend's work. We got the best seats in our theater. The movie lives up to the hype then some, so this was all worth it!
+I could've formatted the message better to highlight the date and format but it's not bad for a weekend's work. We got the best seats in our theater. The movie lives up to the hype then some, so this was all worth it! Make sure to catch it in IMAX if possible.
 
-The movie ended up setting several box office records, and ended up [crashing Fandango and AMC Theater websites](https://www.cnet.com/news/spider-man-no-way-home-tickets-are-being-scalped-on-ebay-for-ridiculous-prices/) during pre-sales. So I'm glad I didn't depend on manually checking for the tickets,
+The movie ended up setting several box office records, and ended up [crashing Fandango and AMC Theater websites](https://www.cnet.com/news/spider-man-no-way-home-tickets-are-being-scalped-on-ebay-for-ridiculous-prices/) during pre-sales. So I'm glad I didn't depend on manually checking for the tickets.
 
 ## What's in the future?
 
@@ -146,7 +148,7 @@ But what I'm more interested in are performance optimizations, even though no on
 
 This is something I never did in the Django App, and I quickly noticed how bad it made things. I remember it took 9 minutes to process 200 jobs, and it could've been quicker if I made each job run concurrently. Python has plenty of options, from [asyncio](https://docs.python.org/3/library/asyncio.html) to [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html) that make this possible.
 
-In Go however, this gives me a nice excuse to play around with goroutines.
+With Go, this gives me a nice excuse to play around with goroutines.
 
 ### Querying DynamoDB
 
