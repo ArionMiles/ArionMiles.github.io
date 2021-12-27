@@ -108,7 +108,7 @@ I am partial to AWS SAM when it comes to working with serverless on AWS, it's ve
 
 Once the stack is up, I just need to create entries in the DDB table with my movie specifications. I was short on time, and as I wrote this thing, I knew exactly what and how I needed to put the data in. I simply used the AWS Management Console to add the entries.
 
-![Alerts in DynamoDB Table](images/diomedes_search_alerts.jpg "Alerts in DynamoDB Table")
+![Alerts in DynamoDB Table](/images/diomedes_search_alerts.jpg "Alerts in DynamoDB Table")
 
 We need following pieces of crucial information:
 
