@@ -118,7 +118,7 @@ We need the following pieces of crucial information:
 
 With BookMyShow, since we are only interested in when tickets go sale on theaters of our choice, we need to know the Theater Code assigned by BMS, and theaters are zoned by regions (and sub-regions but it's not important for us)
 
-I already know these details for my theaters, but I'll be writing a small CLI utility in goBMS that allows you to list all Regions with their region code, and then narrow down theaters in that region to get these 3 pieces of information.
+I already know these details for my theaters, but I'll be writing a small CLI utility in goBMS (Update: [This is available now](https://github.com/ArionMiles/gobms/releases/tag/v1.0.0)) that allows you to list all Regions with their region code, and then narrow down theaters in that region to get these 3 pieces of information.
 
 Since I'm interested in receiving alerts in our group chat on Telegram, I created a Telegram Bot and added it to my group chat, and noted down the ChatID for our group.
 
