@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-date: 2021-12-23
+date: 2022-10-24
 type: "page"
 ---
 
@@ -8,7 +8,7 @@ I'm a Software Engineer, working remotely from Mumbai, India.
 
 I love building solutions to real life problems with code.
 
-I work at Thinkify Labs, where I'm currently working with the IaaS team at Netskope, building solutions for Public Cloud Security.
+I currently work in the SPM team at Netskope where I help build solutions for Cloud Security Posture Management.
 
 If you'd like to chat, you can reach out to me at `hey@kanishk.io`
 
